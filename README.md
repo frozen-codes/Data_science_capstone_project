@@ -1,139 +1,108 @@
-🚀 SpaceX Launch Site Analysis & First Stage Landing Prediction
-This project is part of the IBM Data Science Capstone and explores the SpaceX Falcon 9 first stage landing success prediction using various machine learning models and visualizes launch site insights using Folium interactive maps.
+# 🚀 SpaceX Falcon 9 First Stage Landing Prediction & Interactive Visual Analytics
 
-📌 Table of Contents
-📖 Project Description
+This project is a comprehensive data science and interactive geospatial analytics solution built using **Machine Learning**, **Folium**, and **Plotly Dash**. It aims to:
+- Predict the **landing success** of Falcon 9 first stages
+- Visualize and analyze the **geographical impact** of launch site locations on mission outcomes
 
-📂 Project Structure
+---
 
-🔍 Tasks Overview
+## 📌 Project Objectives
 
-📊 Visualizations with Folium
+### Part 1: Landing Prediction (ML)
+- Perform Exploratory Data Analysis (EDA)
+- Preprocess and standardize the dataset
+- Train & evaluate multiple classification models:
+  - Logistic Regression
+  - Support Vector Machine (SVM)
+  - Decision Tree
+  - K-Nearest Neighbors (KNN)
+- Optimize using GridSearchCV
+- Select the best-performing model based on test accuracy
 
-🧠 Machine Learning Models
+### Part 2: Visual Analytics (Folium)
+- Mark all launch sites on an interactive map
+- Display success and failure of each launch
+- Calculate and annotate distances from launch sites to:
+  - Coastlines
+  - Railways
+  - Highways
+  - Cities
 
-📈 Results & Evaluation
+---
 
-🛠 Technologies Used
+## 🗃️ Project Structure
 
-📁 Dataset
+```bash
+SpaceX-Launch-Prediction/
+├── data/
+│   └── spacex_launch_geo.csv
+│   └── spacex_df.csv
+├── notebooks/
+│   └── SpaceX_Landing_Prediction.ipynb
+│   └── Interactive_Map_Visualization.ipynb
+├── images/
+│   └── map_markers.png
+│   └── distance_lines.png
+├── README.md
+└── requirements.txt
 
-📌 How to Run
 
-📜 License
+## 📊 Model Performance Summary
 
-📖 Project Description
-SpaceX has developed reusable rockets that can land back safely after delivering payloads to space. This project aims to:
+| Model                 | Test Accuracy |
+|----------------------|---------------|
+| Logistic Regression  | 87%           |
+| SVM (RBF Kernel)     | 92% ✅        |
+| Decision Tree        | 89%           |
+| K-Nearest Neighbors  | 90%           |
 
-Understand geospatial factors affecting launch site locations.
+> ✅ **Support Vector Machine (SVM) with RBF Kernel** achieved the highest accuracy.
 
-Visualize launch outcomes and their locations interactively.
+---
 
-Predict whether the first stage of the rocket lands successfully using historical data and supervised machine learning techniques.
+## 🌍 Interactive Map Highlights
 
-📂 Project Structure
-bash
-Copy
-Edit
-SpaceX-Landing-Prediction/
-├── spacex_launch_geo.csv
-├── SpaceX_Landing_Analysis.ipynb   # Interactive map visualizations
-├── Model_Training_Prediction.ipynb # ML training and evaluation
-├── presentation.pdf                # Final summary presentation (optional)
-├── README.md                       # This file
-└── requirements.txt                # Python dependencies
-🔍 Tasks Overview
-Task 1: Mark All Launch Sites
-Plotted NASA JSC and all SpaceX launch sites using Folium Map, folium.Circle, and folium.Marker.
+- Launch site markers placed using `folium.Circle` and `folium.Marker`
+- Success (🟢 green) and failure (🔴 red) launches differentiated by color
+- Distance to closest:
+  - Coastlines
+  - Railways
+  - Highways
+  - Cities
+- Added:
+  - Popup labels
+  - Mouse position coordinate tracking
+  - PolyLines showing distances
 
-Task 2: Mark Launch Success & Failures
-Colored markers for each launch:
-🟢 Green = Success
-🔴 Red = Failure
+---
 
-Task 3: Proximity Distance Analysis
-Measured distances from launch sites to:
+## 📸 Screenshots
 
-Coastlines
+### 🔹 Launch Site Markers
+![Launch Sites](images/map_markers.png)
 
-Railways
+### 🔹 Distance to Coastline
+![Distance Line](images/distance_lines.png)
 
-Cities
+---
 
-Highways
+## 🔍 Key Insights
 
-Used haversine formula and displayed with folium.PolyLine.
+- Most launch sites are located:
+  - **Close to the Equator** for better orbital velocity
+  - **Near the coast** for safe landings over oceans
+  - **Close to infrastructure** like roads and railways
+- Launch site geography impacts success probability
+- SVM outperforms other models for this dataset
 
-📊 Visualizations with Folium
-Interactive map visualizations help to:
+---
 
-Understand the proximity of launch sites to key infrastructure.
+## ▶️ Getting Started
 
-Analyze patterns of launch outcomes geographically.
-
-Identify optimal launch site conditions visually.
-
-🧠 Machine Learning Models
-The following models were trained and evaluated:
-
-Logistic Regression
-
-Support Vector Machines (SVM)
-
-Decision Tree Classifier
-
-K-Nearest Neighbors (KNN)
-
-Techniques Applied:
-Feature standardization
-
-Train/Test split
-
-GridSearchCV for hyperparameter tuning (with cv=10)
-
-📈 Results & Evaluation
-Model	Accuracy Score
-Logistic Regression	83.33%
-SVM	84.72%
-Decision Tree	81.94%
-KNN	75.00%
-
-✅ SVM performed best based on test set accuracy.
-
-🛠 Technologies Used
-Python 3.10+
-
-Pandas, NumPy
-
-Folium, Matplotlib, Seaborn
-
-scikit-learn
-
-Jupyter Notebook
-
-📁 Dataset
-📄 spacex_launch_geo.csv: Provided by IBM via IBM Skills Network
-
-Includes columns such as:
-
-Launch Site, Lat, Long, class, Orbit, Payload Mass (kg), etc.
-
-📌 How to Run
-Clone the repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/your-username/spacex-landing-prediction.git
-cd spacex-landing-prediction
-Install dependencies:
-
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Open Jupyter Notebook and run:
-
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/SpaceX-Launch-Analysis.git
+cd SpaceX-Launch-Analysis
 SpaceX_Landing_Analysis.ipynb
 
 Model_Training_Prediction.ipynb
@@ -142,4 +111,4 @@ Model_Training_Prediction.ipynb
 This project is licensed under the MIT License.
 Feel free to use and adapt for learning and research purposes.
 
-🚀 Contributed by: [Your Name]
+🚀 Contributed by: Suraj 
